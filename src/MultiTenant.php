@@ -4,7 +4,6 @@
 namespace Solutosoft\MultiTenant;
 
 use RuntimeException;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -45,7 +44,7 @@ trait MultiTenant
      */
     public function applyTenant()
     {
-        $user = Auth::user();
+        $user = auth()->user();
         $column = $this->getTenantColumn();
         $tenantId = $this->getAttribute($column);
 
